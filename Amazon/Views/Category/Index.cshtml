@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Amazon.Models.Category>
+
+@{
+    ViewData["Title"] = "Category List";
+}
+
+<h1 class="text-center row mb-5">List of Categories</h1>
+
+<div class="col mb-3">
+    <a class="btn btn-primary" asp-action="Create">New Category</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category ID</th>
+            <th>Category Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.CategoryId</td>
+                <td>@category.CategoryName</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = category.CategoryId })" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = category.CategoryId })" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

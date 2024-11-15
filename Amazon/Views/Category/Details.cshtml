@@ -1,0 +1,17 @@
+﻿@model Amazon.Models.Category
+
+@{
+    ViewData["Title"] = "Category Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>@Model.CategoryName</h4>
+</div>
+
+<div>
+    <a href="@Url.Action("Edit", new { id = Model.CategoryId })" class="btn btn-warning">Edit</a>
+    <a href="@Url.Action("Delete", new { id = Model.CategoryId })" class="btn btn-danger">Delete</a>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+</div>
